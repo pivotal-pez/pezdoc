@@ -10,7 +10,7 @@ import (
 const (
 	WEB_SRC       = "/static/web.go_"
 	WEB_DEST      = "./web.go"
-	UI_SRC        = "/ui"
+	UI_SRC        = "/ui/pez"
 	UI_DEST       = "./swagger-ui"
 	MANIFEST_FILE = "./manifest.yml"
 	MANIFEST_TXT  = `

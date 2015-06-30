@@ -71,3 +71,18 @@ func DirectoryExists(dirpath string) bool {
 	}
 	return true
 }
+
+func RemoveDir(dirpath string) bool {
+	_, err := os.Open(dirpath)
+	if os.IsNotExist(err) {
+		fmt.Println("Directory not found:", dirpath)
+		return true
+	} else {
+		fmt.Println("Removing:", dirpath)
+		if err := os.RemoveAll(dirpath); err != nil {
+			return false
+		}
+		fmt.Println("Done.")
+	}
+	return true
+}

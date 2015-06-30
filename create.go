@@ -24,10 +24,6 @@ var createCli = cli.Command{
 			Value: "api-docs",
 			Usage: "Specify cf app hostname (api-docs)",
 		},
-		cli.BoolFlag{
-			Name:  "pez, p",
-			Usage: "Use pez-specific ui",
-		},
 	},
 	Aliases: []string{"c"},
 	Usage:   "bootstrap swagger-ui server",
@@ -39,13 +35,8 @@ var createCli = cli.Command{
 			return
 		}
 
-		u := "default"
-		if c.Bool("pez") {
-			u = "pez"
-		}
-
 		if dst, err := os.Stat(t); (err != nil) || (!dst.IsDir()) {
-			BuildTarget(t, n, u)
+			BuildTarget(t, n)
 		} else {
 			fmt.Println("Target directory already exists. Exiting.")
 			os.Exit(1)
@@ -55,8 +46,13 @@ var createCli = cli.Command{
 }
 
 //BuildTarget - creates project at specified location and copies/generates necessary assets.
-func BuildTarget(target, name, ui string) {
+func BuildTarget(target, name string) {
 	fmt.Println("Creating: " + target)
+
+	if !swaggerExists() {
+		fmt.Println("Swagger lib not found, installing swagger lib.")
+		installSwagger()
+	}
 
 	if err := os.MkdirAll(target, 0755); err != nil {
 		fmt.Println("Could not create directory.")
@@ -78,7 +74,7 @@ func BuildTarget(target, name, ui string) {
 		panic(err)
 	}
 
-	if err := CopyDir(PROJECT_ROOT+UI_SRC+"/"+ui, UI_DEST); err != nil {
+	if err := CopyDir(PROJECT_ROOT+UI_SRC, UI_DEST); err != nil {
 		fmt.Println("Could not copy UI directory.")
 		panic(err)
 	}
