@@ -21,15 +21,15 @@ applications:
   disk_quota: 128M
   host: {{.Name}}
   buildpack: http://github.com/ryandotsmith/null-buildpack.git
-  command: ./build/bootswag_linux_amd64
+  command: ./build/pezdoc_linux_amd64
 `
 )
 
 var (
 	GOPATH       string = os.Getenv("GOPATH")
-	ORGPATH      string = path.Join(GOPATH, "/src/github.com/pivotalservices")
-	SWAGGER_ROOT string = path.Join(ORGPATH, "/swagger")
-	PROJECT_ROOT string = path.Join(ORGPATH, "/bootswag")
+	ORGPATH      string = path.Join(GOPATH, "/src/github.com/pivotal-pez")
+	SWAGGER_ROOT string = path.Join(GOPATH, "/src/github.com/pivotalservices/swagger")
+	PROJECT_ROOT string = path.Join(ORGPATH, "/pezdoc")
 )
 
 func main() {
@@ -41,8 +41,8 @@ func main() {
 // NewApp creates a new cli app
 func NewApp() *cli.App {
 	app := cli.NewApp()
-	app.Name = "bootswag"
-	app.Usage = "Bootstrap Swagger UI Project"
+	app.Name = "PezDoc"
+	app.Usage = "Bootstrap Swagger Documentation for Pez"
 
 	app.Commands = append(app.Commands, []cli.Command{
 		initCli,

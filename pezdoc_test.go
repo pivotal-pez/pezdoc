@@ -3,13 +3,13 @@ package main_test
 import (
 	"path"
 
-	. "github.com/pivotalservices/bootswag"
+	. "github.com/pivotal-pez/pezdoc"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )
 
-var _ = Describe("Bootswag", func() {
+var _ = Describe("PezDoc", func() {
 
 	Describe("pez ui at specified location", func() {
 		var (

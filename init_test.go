@@ -18,9 +18,3 @@ var _ = Describe("Swagger is installed", func() {
 		Ω(swaggerExists()).To(BeTrue())
 	})
 })
-
-var _ = Describe("Installs swagger lib", func() {
-	It("should return true", func() {
-		Ω(swaggerExists()).To(BeTrue())
-	})
-})

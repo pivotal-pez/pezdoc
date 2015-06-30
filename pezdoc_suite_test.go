@@ -11,9 +11,9 @@ import (
 	"testing"
 )
 
-func TestBootswag(t *testing.T) {
+func TestPezdoc(t *testing.T) {
 	RegisterFailHandler(Fail)
-	RunSpecs(t, "Bootswag Suite")
+	RunSpecs(t, "Pezdoc Suite")
 }
 
 func fileExists(filepath string) bool {
