@@ -39,7 +39,7 @@ func swaggerExists() bool {
 
 func installSwagger() {
 	println("Installing swagger library...")
-	cmd := exec.Command("go", "get", "-u", "github.com/pivotalservices/swagger")
+	cmd := exec.Command("go", "get", "-u", "github.com/pivotal-pez/swagger")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		println("Error: ", out)

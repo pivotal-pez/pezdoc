@@ -28,7 +28,7 @@ applications:
 var (
 	GOPATH       string = os.Getenv("GOPATH")
 	ORGPATH      string = path.Join(GOPATH, "/src/github.com/pivotal-pez")
-	SWAGGER_ROOT string = path.Join(GOPATH, "/src/github.com/pivotalservices/swagger")
+	SWAGGER_ROOT string = path.Join(ORGPATH, "/swagger")
 	PROJECT_ROOT string = path.Join(ORGPATH, "/pezdoc")
 )
 

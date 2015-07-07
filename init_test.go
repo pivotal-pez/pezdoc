@@ -16,7 +16,7 @@ var (
 
 var _ = Describe("Initialize swagger", func() {
 	Context("Swagger not installed", func() {
-		SWAGGER_ROOT = path.Join(TEST_GOPATH, "/src/github.com/pivotalservices/swagger")
+		SWAGGER_ROOT = path.Join(TEST_GOPATH, "/src/github.com/pivotal-pez/swagger")
 		_ = SWAGGER_ROOT
 		It("swaggerExists should return false", func() {
 			Ω(swaggerExists()).To(BeFalse())
